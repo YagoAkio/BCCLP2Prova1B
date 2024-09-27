@@ -6,7 +6,7 @@ function App() {
     <div className="App">
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<TelaPrincipal />} />
+                <Route path="/BCCLP2Prova1B" element={<TelaPrincipal />} />
             </Routes>
         </BrowserRouter>
     </div>
