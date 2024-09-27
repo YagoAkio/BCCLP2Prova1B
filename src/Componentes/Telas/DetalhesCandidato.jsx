@@ -8,7 +8,6 @@ export default function DetalhesCandidato(props) {
     const [pergunta, setPergunta] = useState("");
     const [perguntas, setPerguntas] = useState([]);
 
-    // Carregar perguntas do localStorage ao carregar o componente
     useEffect(() => {
         const descutidasSalvas = localStorage.getItem(`descurtidas_${props.candidatoSelecionado.nome}`)
         const curtidasSalvas = localStorage.getItem(`curtidas_${props.candidatoSelecionado.nome}`);
@@ -27,15 +26,13 @@ export default function DetalhesCandidato(props) {
         }
     }, [props.candidatoSelecionado.nome]);
 
-    // Função para enviar a pergunta e salvar no localStorage
     const enviarPergunta = () => {
-        if (pergunta.trim() === "") return; // Evitar perguntas vazias
+        if (pergunta.trim() === "") return;
 
         const novasPerguntas = [...perguntas, pergunta];
         setPerguntas(novasPerguntas);
-        setPergunta(""); // Limpa o campo de pergunta
+        setPergunta(""); 
 
-        // Salvar as perguntas no localStorage
         localStorage.setItem(`perguntas_${props.candidatoSelecionado.nome}`, JSON.stringify(novasPerguntas));
     };
 
